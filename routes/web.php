@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use Illuminate\Support\Facades\Log;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +27,14 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
+
+    Log::build([
+        'driver' => 'single',
+        'path' => storage_path('logs/custom.log'),
+      ])->info('Something happened!');
+
+    //Log::info('Dashboard entered');
+    //Log::emergency('The system is down!');
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
