@@ -28,10 +28,10 @@ Route::get('/', function () {
 
 Route::get('/dashboard', function () {
 
-    Log::build([
-        'driver' => 'single',
-        'path' => storage_path('logs/custom.log'),
-      ])->info('Something happened!');
+    // Log::build([
+    //     'driver' => 'single',
+    //     'path' => storage_path('logs/custom.log'),
+    //   ])->info('Something happened!');
 
     //Log::info('Dashboard entered');
     //Log::emergency('The system is down!');
