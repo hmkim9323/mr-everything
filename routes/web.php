@@ -49,12 +49,21 @@ require __DIR__.'/auth.php';
 
 
 Route::get('/openai', function (){
-    $result = OpenAI::completions()->create([
-        'model' => 'text-davinci-003',
-        'prompt' => 'PHP is',
+
+    $result = OpenAI::images()->create([
+        "prompt"=>"A cute baby sea otter",
+        "n" => 2,
+        "size" => "512x512"
     ]);
 
-    echo $result['choices'][0]['text']; // an open-source, widely-used, server-side scripting language.
+    return response(['url' => $result->data[0]->url]);
+
+    // $result = OpenAI::completions()->create([
+    //     'model' => 'text-davinci-003',
+    //     'prompt' => 'PHP is',
+    // ]);
+
+    // echo $result['choices'][0]['text']; // an open-source, widely-used, server-side scripting language.
 });
 
 Route::get('/auth/redirect', function () {
