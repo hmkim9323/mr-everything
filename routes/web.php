@@ -7,6 +7,7 @@ use Inertia\Inertia;
 use Illuminate\Support\Facades\Log;
 use OpenAI\Laravel\Facades\OpenAI;
 use Laravel\Socialite\Facades\Socialite;
+use Illuminate\Support\Facades\Process;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -74,4 +75,12 @@ Route::get('/auth/callback', function () {
     $user = Socialite::driver('github')->user();
     dd($user);
     // $user->token
+});
+
+Route::get('/processtest', function () {
+
+
+    $result = Process::run('pwd');
+
+    return $result->output();
 });
