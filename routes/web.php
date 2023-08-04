@@ -7,6 +7,8 @@ use Inertia\Inertia;
 use Illuminate\Support\Facades\Log;
 use OpenAI\Laravel\Facades\OpenAI;
 use Laravel\Socialite\Facades\Socialite;
+use Illuminate\Support\Facades\Process;
+use App\Http\Controllers\MailController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -75,3 +77,14 @@ Route::get('/auth/callback', function () {
     dd($user);
     // $user->token
 });
+
+Route::get('/processtest', function () {
+
+
+    $result = Process::run('pwd');
+
+    return $result->output();
+});
+
+
+Route::get('send-mail', [MailController::class, 'index']);
