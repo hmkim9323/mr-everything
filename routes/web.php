@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Log;
 use OpenAI\Laravel\Facades\OpenAI;
 use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Support\Facades\Process;
+use App\Http\Controllers\MailController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -84,3 +85,6 @@ Route::get('/processtest', function () {
 
     return $result->output();
 });
+
+
+Route::get('send-mail', [MailController::class, 'index']);
