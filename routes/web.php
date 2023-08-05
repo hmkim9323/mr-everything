@@ -88,3 +88,12 @@ Route::get('/processtest', function () {
 
 
 Route::get('send-mail', [MailController::class, 'index']);
+
+
+Route::get('/chart', function () {
+    return view('chart');
+});
+
+Route::get('/plotly-chart', function () {
+    return view('plotlyChart');
+});
