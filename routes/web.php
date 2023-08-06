@@ -97,3 +97,32 @@ Route::get('/chart', function () {
 Route::get('/plotly-chart', function () {
     return view('plotlyChart');
 });
+
+Route::get('/php-network', function () {
+
+    $domain="winkstone.com";
+    if(checkdnsrr($domain,"MX")) {
+        echo "Passed";
+    } else {
+        echo "Failed";
+    }
+
+    echo "<br>";
+
+    $hostlist = gethostbynamel("naver.com");
+    print_r($hostlist);
+
+    echo "<br>";
+
+    echo gethostname();
+
+    echo "<br>";
+
+
+});
+
+Route::get('/abort-test', function () {
+    abort(404);
+
+    //abort(403, 'Unauthorized action.');
+});
