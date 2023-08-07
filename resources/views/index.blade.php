@@ -49,11 +49,11 @@
 </body>
 
 <script>
-  const pusher  = new Pusher('{{config('broadcasting.connections.pusher.key')}}', {cluster: 'eu'});
-  const channel = pusher.subscribe('public');
+  const pusher  = new Pusher('{{config('broadcasting.connections.pusher.key')}}', {cluster: 'ap3'});
+  const channel = pusher.subscribe('public2');
 
   //Receive messages
-  channel.bind('chat', function (data) {
+  channel.bind('chat2', function (data) {
     $.post("/receive", {
       _token:  '{{csrf_token()}}',
       message: data.message,
