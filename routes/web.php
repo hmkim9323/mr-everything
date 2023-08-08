@@ -9,6 +9,7 @@ use OpenAI\Laravel\Facades\OpenAI;
 use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Support\Facades\Process;
 use App\Http\Controllers\MailController;
+use Illuminate\Support\Facades\Cache;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -130,3 +131,19 @@ Route::get('/abort-test', function () {
 Route::get('/test', 'App\Http\Controllers\PusherController@index');
 Route::post('/broadcast', 'App\Http\Controllers\PusherController@broadcast');
 Route::post('/receive', 'App\Http\Controllers\PusherController@receive');
+
+Route::get('cache-test', function () {
+
+    //cache flush
+    //Cache::flush();
+    Cache::put('user', 'John', 10);
+
+    // if(class_exists('Memcache')){
+    //     // Memcache is enabled.
+    //     echo "Memcache is enabled";
+    //   }else{
+    //     // Memcache is not enabled.
+    //     echo "Memcache is not enabled";
+    //   }
+    dd(Cache::get('user'));
+});

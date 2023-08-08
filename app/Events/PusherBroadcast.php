@@ -31,10 +31,10 @@ class PusherBroadcast implements ShouldBroadcast
      */
     public function broadcastOn(): array
     {
-        return ['public'];
+        return ['public2'];
     }
 
     public function broadcastAs(): string{
-        return 'chat';
+        return 'chat2';
     }
 }
