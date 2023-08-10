@@ -101,7 +101,7 @@ Route::get('/plotly-chart', function () {
 
 Route::get('/php-network', function () {
 
-    $domain="winkstone.com";
+    $domain="google.com";
     if(checkdnsrr($domain,"MX")) {
         echo "Passed";
     } else {
